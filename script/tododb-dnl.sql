@@ -3,3 +3,5 @@ CREATE TABLE `tododb`.`tarea` ( `id` INT NOT NULL AUTO_INCREMENT , `descripcion`
 CREATE TABLE `tododb`.`persona` ( `id` INT NOT NULL , `alias` VARCHAR(25) NOT NULL , `nombre` VARCHAR(25) NOT NULL , `apellido` VARCHAR(25) NOT NULL , `email` VARCHAR(50) NOT NULL ) ENGINE = InnoDB; 
 
 ALTER TABLE `tarea` ADD `id_persona` INT NOT NULL AFTER `fecha_realizada`; 
+
+ALTER TABLE `tarea` ADD CONSTRAINT `persona_fk` FOREIGN KEY (`id_persona`) REFERENCES `persona`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT; 
